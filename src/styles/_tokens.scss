@@ -1,0 +1,22 @@
+$bg: #101211;
+$panel: #181b19;
+$line: #ffffff12;
+$muted: #92998f;
+$text: #e7e9df;
+$amber: #d5b77c;
+$green: #9cb9a0;
+$mono: 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+
+@mixin panel {
+  background: linear-gradient(135deg, #20241f85, #151815e6);
+  border: 1px solid $line;
+}
+@mixin mono {
+  font-family: $mono;
+  font-size: 10px;
+  letter-spacing: 1.3px;
+}
+@mixin focus {
+  outline: 2px solid $amber;
+  outline-offset: 4px;
+}

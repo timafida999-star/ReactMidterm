@@ -1,0 +1,238 @@
+@use 'tokens' as *;
+
+.detail-page {
+  padding-block: 32px 65px;
+  min-height: 75vh;
+}
+.detail-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  padding-block: 32px;
+  h1 {
+    font-size: clamp(30px, 4vw, 52px);
+    font-weight: 450;
+    letter-spacing: -1.7px;
+    margin-top: 10px;
+    overflow-wrap: anywhere;
+  }
+  p {
+    color: $muted;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 12px;
+  }
+  > button {
+    flex-shrink: 0;
+  }
+}
+.detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 310px;
+  gap: 30px;
+}
+.detail-lore {
+  @include panel;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.detail-image {
+  height: 360px;
+  .entity-image__glyph {
+    > svg {
+      width: 130px;
+      height: 130px;
+    }
+    &::before {
+      width: 210px;
+      height: 210px;
+    }
+    &::after {
+      width: 240px;
+      height: 240px;
+    }
+  }
+}
+.lore-body {
+  padding: 35px 38px 42px;
+  h2 {
+    font-size: 25px;
+    font-weight: 450;
+    margin-block: 10px 25px;
+  }
+  > p {
+    color: #b4bcab;
+    line-height: 1.95;
+    font-size: 14px;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    & + p {
+      margin-top: 20px;
+    }
+    &:first-of-type {
+      color: #d6d8cd;
+      font-size: 17px;
+      font-family: Georgia, serif;
+      line-height: 1.8;
+    }
+  }
+}
+.dossier-panel {
+  @include panel;
+  border-radius: 5px;
+  padding: 26px;
+  h2 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 23px;
+  }
+  dl {
+    margin: 0;
+    > div {
+      padding-block: 17px;
+      border-top: 1px solid $line;
+    }
+  }
+  dt {
+    @include mono;
+    font-size: 8px;
+    color: #8b9682;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  dd {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #d2d6c7;
+    overflow-wrap: anywhere;
+    .badge {
+      font-size: 10px;
+    }
+  }
+}
+.archive-notice {
+  padding: 28px;
+  margin-top: 20px;
+  border: 1px solid #d5b77c20;
+  background: #d5b77c06;
+  border-radius: 5px;
+  > svg {
+    color: $amber;
+  }
+  h3 {
+    margin-top: 16px;
+    font:
+      italic 20px Georgia,
+      serif;
+    color: #d5c59f;
+  }
+  p {
+    color: $muted;
+    line-height: 1.9;
+    font-size: 12px;
+    margin-block: 14px 18px;
+  }
+  a {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: $amber;
+  }
+}
+.detail-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 12px;
+  color: $amber;
+}
+.protocol {
+  padding-block: 60px;
+  min-height: 75vh;
+  > h1 {
+    font-size: clamp(35px, 4vw, 52px);
+    letter-spacing: -1.5px;
+    font-weight: 450;
+    margin-top: 14px;
+  }
+}
+.protocol__intro {
+  color: $muted;
+  line-height: 1.9;
+  max-width: 600px;
+  margin-block: 20px 35px;
+}
+.protocol-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  .dossier-panel {
+    > svg {
+      color: $amber;
+      margin-bottom: 20px;
+    }
+    p {
+      color: $muted;
+      font-size: 12px;
+      line-height: 1.9;
+      margin-block: 12px 23px;
+    }
+    h3 {
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .button {
+      margin-top: 10px;
+    }
+  }
+}
+.protocol-threat {
+  border-top: 1px solid $line;
+  padding-top: 17px;
+}
+@media (max-width: 1000px) {
+  .detail-grid {
+    grid-template-columns: minmax(0, 1fr) 270px;
+    gap: 20px;
+  }
+  .lore-body {
+    padding: 26px;
+  }
+  .protocol-grid {
+    grid-template-columns: 1fr 1fr;
+    > :last-child {
+      grid-column: 1 / -1;
+    }
+  }
+}
+@media (max-width: 720px) {
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+  .detail-heading {
+    flex-wrap: wrap;
+  }
+  .detail-image {
+    height: 260px;
+  }
+  .detail-sidebar {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .lore-body {
+    padding: 24px;
+    > p {
+      font-size: 13px;
+    }
+  }
+  .protocol-grid {
+    grid-template-columns: 1fr;
+  }
+}
